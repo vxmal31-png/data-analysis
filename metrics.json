@@ -1,0 +1,6 @@
+{
+    "MAE": 52.79063395258009,
+    "RMSE": 65.39536015884848,
+    "Baseline_MAE": 69.22222222222223,
+    "Model": "Linear Regression"
+}

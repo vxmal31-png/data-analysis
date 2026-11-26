@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="dashboard-heading">
+  <div><h1>Dashboard</h1><p class="dashboard-subtitle">Your analytics overview at a glance</p></div>
+  <div class="heading-actions">
+    <button class="secondary-button date-button" type="button"><span>▣</span> Oct 18 - Nov 18 <b>⌄</b></button>
+    <button class="secondary-button" type="button">☷ Filter</button>
+    <button class="secondary-button" type="button" onclick="window.print()">⇧ Export</button>
+  </div>
+</section>
+
+<section class="kpi-grid" aria-label="Key performance indicators">
+  <article class="kpi-card">
+    <div class="kpi-top"><span class="kpi-icon violet-icon">◉</span><span class="kpi-label">Global Growth Score</span><span class="kpi-info">ⓘ</span></div>
+    <div class="growth-content"><div class="gauge"><div class="gauge-inner"><strong>78%</strong><small>0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100</small></div></div><div class="sparkline spark-violet"><svg viewBox="0 0 150 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 36 L12 30 L20 33 L31 22 L42 28 L53 18 L64 25 L75 15 L86 21 L98 9 L109 17 L120 7 L132 13 L150 2"/></svg></div></div>
+  </article>
+  <article class="kpi-card">
+    <div class="kpi-top"><span class="kpi-icon">▣</span><span class="kpi-label">Recurring Net Revenue</span><span class="kpi-info">ⓘ</span></div>
+    <div class="kpi-value-row"><strong>$54,200</strong><div class="sparkline spark-gold"><svg viewBox="0 0 150 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 36 L12 32 L22 35 L33 27 L43 30 L54 22 L66 27 L77 17 L88 22 L100 13 L112 18 L124 8 L136 12 L150 3"/></svg></div></div>
+  </article>
+  <article class="kpi-card">
+    <div class="kpi-top"><span class="kpi-icon">▧</span><span class="kpi-label">Active Campaign Conversion</span><span class="kpi-info">ⓘ</span></div>
+    <div class="kpi-value-row"><strong>21.5%</strong><div class="sparkline spark-gold"><svg viewBox="0 0 150 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 35 L14 31 L26 34 L38 25 L50 29 L63 19 L75 23 L87 15 L100 19 L112 9 L124 14 L137 5 L150 2"/></svg></div></div>
+  </article>
+</section>
+
+<section class="main-dashboard-grid">
+  <article class="panel growth-panel">
+    <div class="panel-header"><div><h3>Cross-Platform Growth</h3><p class="panel-kicker">$9,257.51</p><div class="growth-change"><span>15.5% ↗</span> + $143.30 increased</div></div><div class="panel-tools"><button class="mini-button">☷ Filter</button><button class="mini-button">↕ Sort</button><button class="mini-button">•••</button></div></div>
+    <div class="flow-chart" aria-label="Cross-platform growth flow from October to December">
+      <div class="flow-labels"><span>$2,988.20</span><span></span><span>$4,005.65</span></div>
+      <svg class="flow-svg" viewBox="0 0 640 205" preserveAspectRatio="none" role="img" aria-label="Colored flow bands between APAC, EMEA and AMER regions">
+        <defs>
+          <linearGradient id="flowA"><stop stop-color="#29c9c5" stop-opacity=".75"/><stop offset="1" stop-color="#4d83f2" stop-opacity=".55"/></linearGradient>
+          <linearGradient id="flowB"><stop stop-color="#9270fa" stop-opacity=".7"/><stop offset="1" stop-color="#36cfc5" stop-opacity=".58"/></linearGradient>
+          <linearGradient id="flowC"><stop stop-color="#36cfc5" stop-opacity=".65"/><stop offset="1" stop-color="#a276ff" stop-opacity=".6"/></linearGradient>
+        </defs>
+        <path d="M65 42 C170 42 185 95 280 95 S420 24 545 24" stroke="url(#flowA)" stroke-width="22" fill="none"/>
+        <path d="M65 75 C165 75 185 42 280 42 S430 90 545 90" stroke="url(#flowB)" stroke-width="19" fill="none"/>
+        <path d="M65 111 C170 111 190 145 280 145 S420 56 545 56" stroke="url(#flowC)" stroke-width="18" fill="none"/>
+        <path d="M65 145 C170 145 190 113 280 113 S430 160 545 160" stroke="url(#flowB)" stroke-width="18" fill="none"/>
+        <path d="M65 91 C170 91 195 173 280 173 S425 122 545 122" stroke="url(#flowA)" stroke-width="12" fill="none" opacity=".8"/>
+        <path d="M65 54 C170 54 190 65 280 65 S430 183 545 183" stroke="url(#flowC)" stroke-width="10" fill="none" opacity=".75"/>
+      </svg>
+      <div class="flow-nodes flow-left"><span class="node teal">APAC</span><span class="node blue">APAC</span><span class="node purple">EMEA</span><span class="node purple">APAC</span></div>
+      <div class="flow-nodes flow-middle"><span class="node teal">APAC</span><span class="node teal">AMER</span><span class="node teal">EMEA</span><span class="node blue">AMER</span><span class="node purple">EMEA</span></div>
+      <div class="flow-nodes flow-right"><span class="node teal">APAC</span><span class="node teal">APAC</span><span class="node blue">EMEA</span><span class="node purple">EMEA</span><span class="node purple">APAC</span></div>
+      <div class="flow-tooltip">Interactive<br><small>growth flow</small></div>
+    </div>
+    <div class="flow-months"><span>Oct</span><span>Nov</span><span>Dec</span></div>
+    <div class="legend"><span><i class="legend-dot china"></i>China</span><span><i class="legend-dot ue"></i>UE</span><span><i class="legend-dot usa"></i>USA</span><span><i class="legend-dot canada"></i>Canada</span><span><i class="legend-dot other"></i>Other</span></div>
+  </article>
+
+  <article class="panel retention-panel">
+    <div class="panel-header"><div><h3>User Cohort Retention</h3><p class="panel-kicker">24,473</p><div class="retention-change"><span>▼ 8.3%</span> + 749 increased</div></div><button class="mini-button">Churn Alert</button></div>
+    <div class="retention-chart"><div class="avatar-row"><span>👩🏻</span><span>👨🏽</span><span>👩🏼</span><span>👩🏻</span><span>👨🏻</span><span>👩🏽</span><span>👨🏼</span></div><div class="retention-bars"><div class="ret-bar bar-purple" style="--bar:82%"></div><div class="ret-bar bar-cyan" style="--bar:68%"></div><div class="ret-bar bar-green" style="--bar:61%"></div><div class="ret-bar bar-lime" style="--bar:54%"></div><div class="ret-bar bar-yellow" style="--bar:48%"></div><div class="ret-bar bar-orange" style="--bar:42%"></div><div class="ret-bar bar-pink" style="--bar:36%"></div></div><div class="weekday-row"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div></div>
+  </article>
+</section>
+
+<section class="bottom-dashboard-grid">
+  <article class="panel revenue-panel">
+    <div class="panel-header"><div><h3>Revenue Source Mix</h3></div><button class="mini-button">Monthly⌄</button></div>
+    <div class="revenue-content"><div class="donut-wrap"><canvas id="quantixRevenueChart" aria-label="Revenue source mix donut chart"></canvas><div class="donut-center"><strong>Revenue</strong><small>Source mix</small></div></div><div class="revenue-legend"><span><i class="legend-dot api"></i>API Access</span><span><i class="legend-dot subscription"></i>Subscription</span><span><i class="legend-dot consulting"></i>Consulting</span></div></div>
+  </article>
+  <article class="panel connections-panel">
+    <div class="panel-header"><div><h3>System Connections</h3></div><a href="/about" class="see-all">See All</a></div>
+    <div class="connection-head"><span>Application</span><span>System Health</span><span>Sync Frequency</span><span>Automation Hooks</span></div>
+    <div class="connection-row"><span class="app-name"><i class="app-logo stripe">S</i>Stripe</span><span class="health-icons"><b>✓</b><b>✓</b><b class="warn">!</b><b class="bad">○</b></span><span class="sync-line"><i style="width:72%"></i></span><span class="toggle on"></span></div>
+    <div class="connection-row"><span class="app-name"><i class="app-logo zapier">✿</i>Zapier</span><span class="health-text">High-Velocity Sync</span><span class="sync-line"><i style="width:48%"></i></span><span class="toggle"></span></div>
+    <div class="connection-row"><span class="app-name"><i class="app-logo shopify">♧</i>Shopify</span><span class="health-text">API-Grade CRM</span><span class="sync-line"><i style="width:22%"></i></span><span class="toggle on"></span></div>
+  </article>
+</section>
+<div class="dashboard-footnote">Demo dashboard values · Visitor AI prediction and analytics pages remain available from the sidebar.</div>
+<script>window.pageChart = "quantix-dashboard";</script>
+{% endblock %}

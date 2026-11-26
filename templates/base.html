@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} | Quantix Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="space-stars" aria-hidden="true"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"><span>Q</span></div>
+      <div class="brand-copy"><strong>Quantix</strong><span>Analytics</span></div>
+      <button class="icon-button collapse-button" id="collapseSidebar" aria-label="Collapse sidebar">‹</button>
+    </div>
+    <nav class="side-nav" aria-label="Main navigation">
+      <p class="nav-section-label">GENERAL</p>
+      <a class="{% if page == 'dashboard' %}active{% endif %}" href="/" data-tooltip="Dashboard"><span class="nav-icon">▦</span><span>Dashboard</span></a>
+      <a class="{% if page == 'prediction' %}active{% endif %}" href="/prediction" data-tooltip="Payment"><span class="nav-icon">⇄</span><span>Payment</span></a>
+      <a class="{% if page == 'analytics' %}active{% endif %}" href="/analytics" data-tooltip="Customers"><span class="nav-icon">♙</span><span>Customers</span></a>
+      <a class="{% if page == 'about' %}active{% endif %}" href="/about" data-tooltip="Message"><span class="nav-icon">▱</span><span>Message</span><span class="nav-count">2</span></a>
+      <p class="nav-section-label">TOOLS</p>
+      <a class="{% if page == 'dataset' %}active{% endif %}" href="/dataset" data-tooltip="Product"><span class="nav-icon">◇</span><span>Product</span></a>
+      <a class="{% if page == 'performance' %}active{% endif %}" href="/performance" data-tooltip="Invoice"><span class="nav-icon">▤</span><span>Invoice</span></a>
+      <a href="/analytics" data-tooltip="Analytics"><span class="nav-icon">⌁</span><span>Analytics</span></a>
+      <a href="/prediction" data-tooltip="Automation"><span class="nav-icon">✣</span><span>Automation</span><span class="beta-tag">BETA</span></a>
+      <p class="nav-section-label">SUPPORT</p>
+      <a href="/about" data-tooltip="Settings"><span class="nav-icon">⚙</span><span>Settings</span></a>
+      <a href="/about" data-tooltip="Security"><span class="nav-icon">⬡</span><span>Security</span></a>
+      <a href="/about" data-tooltip="Help"><span class="nav-icon">ⓘ</span><span>Help</span></a>
+    </nav>
+    <div class="sidebar-promo">
+      <div class="promo-art" aria-hidden="true"><span class="promo-rocket">🚀</span><span class="promo-gear">⚙</span></div>
+      <strong>Activate Quantum AI</strong>
+      <small>Unlock advanced insights</small>
+      <a href="/prediction" class="promo-button">Explore AI <span>→</span></a>
+    </div>
+    <div class="sidebar-status"><span class="status-dot"></span><div><strong>{{ 'System Online' if model_loaded else 'System Ready' }}</strong><small>© 2026 Nexus, Inc.</small></div></div>
+  </aside>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="icon-button menu-button" id="menuButton" aria-label="Open menu">☰</button>
+      <div class="top-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search"></div>
+      <div class="top-actions">
+        <div class="top-system-badge streaming-badge"><span class="stream-bars">▥</span>Data streaming <span class="tiny-caret">⌄</span></div>
+        <div class="top-system-badge"><span class="status-dot"></span>Live system health</div>
+        <button class="icon-button top-icon" aria-label="Apps">▦</button>
+        <button class="icon-button notification-button top-icon" aria-label="Notifications">♧<span></span></button>
+        <button class="icon-button top-icon" id="themeToggle" aria-label="Toggle theme">◐</button>
+        <div class="profile"><div class="avatar">AC</div><div><strong>Alex Chen</strong><small>Co-Founder</small></div></div>
+      </div>
+    </header>
+    <main class="content">{% block content %}{% endblock %}</main>
+  </div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/quantix-dashboard.js') }}"></script>
+</body>
+</html>

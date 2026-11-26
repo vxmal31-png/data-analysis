@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-heading">
+  <div><p class="eyebrow">SYSTEM OVERVIEW</p><h1>About Visitor AI</h1><p>Website visitor prediction using the project's existing data and model.</p></div>
+</section>
+<section class="about-grid">
+  <article class="panel"><p class="eyebrow">PURPOSE</p><h3>Traffic forecasting workspace</h3><p>This application provides historical analytics and generates predictions from the existing <code>visitor_model.pkl</code> linear regression model.</p></article>
+  <article class="panel"><p class="eyebrow">WORKFLOW</p><h3>From inputs to prediction</h3><ol><li>Read numeric model features</li><li>Validate submitted values</li><li>Run the existing model</li><li>Return the actual model output</li></ol></article>
+  <article class="panel"><p class="eyebrow">TECHNOLOGY</p><h3>Implementation stack</h3><div class="tech-list"><span>Python</span><span>Flask</span><span>Pandas</span><span>Scikit-learn</span><span>Joblib</span><span>Chart.js</span></div></article>
+  <article class="panel"><p class="eyebrow">DATA</p><h3>Project resources</h3><p>The dashboard reads <code>website_visitors.csv</code> and <code>metrics.json</code> directly. It does not replace or retrain the original model.</p></article>
+</section>
+{% endblock %}

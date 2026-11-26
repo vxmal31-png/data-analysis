@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-heading">
+  <div><p class="eyebrow">AI FORECAST</p><h1>Visitor Prediction</h1><p>Generate a visitor estimate using the trained model.</p></div>
+</section>
+<section class="prediction-layout">
+  <article class="panel form-panel">
+    <div class="panel-header"><div><p class="eyebrow">MODEL INPUT</p><h3>Prediction details</h3></div></div>
+    {% if not model_loaded %}
+    <div class="alert error">visitor_model.pkl could not be loaded.</div>
+    {% elif not features %}
+    <div class="alert warning">The model does not expose usable feature names.</div>
+    {% else %}
+    <form id="predictionForm">
+      <div class="form-grid">
+        {% for feature in features %}
+        <label class="field"><span>{{ feature.replace("_", " ") }}</span>
+          <input type="number" step="any" name="{{ feature }}" value="{{ defaults[feature] }}" required>
+          <small>Numeric value for {{ feature }}</small>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="form-actions"><button type="button" class="secondary-button" id="clearPrediction">Reset</button><button type="submit" class="primary-button" id="predictButton">Predict visitors <span>→</span></button></div>
+    </form>
+    {% endif %}
+  </article>
+  <aside class="panel result-panel" id="resultPanel">
+    <p class="eyebrow">MODEL OUTPUT</p>
+    <div class="result-empty" id="resultEmpty"><div class="result-orbit">◎</div><h3>Ready to predict</h3><p>Enter the model inputs and run a prediction.</p></div>
+    <div class="prediction-result" id="predictionResult" hidden><p>Predicted Website Visitors</p><h2 id="predictionValue">0</h2><span class="status-chip">Model result</span><div class="progress-track"><div id="predictionBar"></div></div></div>
+  </aside>
+</section>
+<script>window.modelFeatures = {{ features|tojson }};window.modelDefaults = {{ defaults|tojson }};</script>
+{% endblock %}

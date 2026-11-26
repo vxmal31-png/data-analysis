@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-heading">
+  <div><p class="eyebrow">DATA SOURCE</p><h1>Website Visitor Dataset</h1><p>{{ record_count }} records across {{ column_count }} columns.</p></div>
+  <a class="primary-button" href="/dataset/download">Download CSV <span>↓</span></a>
+</section>
+<section class="panel table-panel">
+  <div class="table-toolbar"><div class="search-box table-search"><span>⌕</span><input id="datasetSearch" type="search" placeholder="Search dataset"></div><span id="tableCount">{{ record_count }} records</span></div>
+  <div class="table-scroll"><table id="datasetTable"><thead></thead><tbody></tbody></table></div>
+  <div class="pagination"><button class="secondary-button" id="prevPage">Previous</button><span id="pageInfo">Page 1</span><button class="secondary-button" id="nextPage">Next</button></div>
+</section>
+<script>window.pageChart = "dataset";</script>
+{% endblock %}

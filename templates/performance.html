@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-heading">
+  <div><p class="eyebrow">EVALUATION</p><h1>Model Performance</h1><p>Recorded metrics for the existing trained model.</p></div>
+</section>
+<section class="metric-grid performance-grid">
+  {% for name, value in metrics.items() %}
+  <article class="metric-card"><div class="metric-icon {% if name == 'MAE' %}cyan{% elif name == 'RMSE' %}violet{% elif name == 'Baseline_MAE' %}blue{% else %}green{% endif %}">◈</div><div><p>{{ name.replace("_", " ") }}</p>{% if value is number %}<h2>{{ "{:,.2f}".format(value) }}</h2>{% else %}<h2>{{ value }}</h2>{% endif %}<small>{{ "Lower is better" if "MAE" in name or "RMSE" in name else "Model configuration" }}</small></div></article>
+  {% else %}
+  <div class="alert warning">No metrics.json values are available.</div>
+  {% endfor %}
+</section>
+<section class="dashboard-grid performance-layout">
+  <article class="panel"><div class="panel-header"><div><p class="eyebrow">ERROR METRICS</p><h3>MAE and RMSE</h3></div></div><div class="chart-wrap small"><canvas id="metricChart"></canvas></div></article>
+  <article class="panel"><div class="panel-header"><div><p class="eyebrow">INTERPRETATION</p><h3>Metric details</h3></div></div>
+    <div class="snapshot-row"><span>MAE</span><strong>Average absolute prediction error</strong></div>
+    <div class="snapshot-row"><span>RMSE</span><strong>Prediction error with larger errors weighted more</strong></div>
+    <div class="snapshot-row"><span>Baseline MAE</span><strong>Comparison baseline error</strong></div>
+  </article>
+</section>
+<script>window.modelMetrics = {{ metrics|tojson }};window.pageChart = "performance";</script>
+{% endblock %}
